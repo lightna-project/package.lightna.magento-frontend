@@ -1,0 +1,22 @@
+<?php
+/**
+ * Import:
+ * @var Lightna\Magento\Data\Session $session
+ */
+
+$cart = $session->cart;
+?>
+<div class="minicart" id="minicart-content">
+    <div class="overlay__title__container">
+        <span class="overlay__title"><?= phrase('Your Cart') ?></span>
+        <!-- Close minicart -->
+        <div class="icon" data-action="close-minicart"></div>
+    </div>
+    <?php if ($cart->qty === 0): ?>
+        <?= block('empty') ?>
+    <?php else: ?>
+        <?= block('products') ?>
+        <?= block('footer') ?>
+    <?php endif; ?>
+</div>
+<div class="minicart__overlay" data-action="close-minicart"></div>

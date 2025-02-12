@@ -1,0 +1,23 @@
+<?php
+/**
+ * Import:
+ * @var Lightna\Magento\Data\Search\Suggestions $suggestions
+ */
+
+if (!$items = $suggestions->getItems()) {
+    return;
+}
+?>
+<div class="cjs-search-suggestions search__suggestions-container">
+    <ul class="search__suggestions">
+        <?php foreach ($items as $suggestion) { ?>
+            <li>
+                <a href="<?= $suggestion->url() ?>"
+                   title="<?= $suggestion->title() ?>" class="search__suggestion">
+                    <span class="search__suggestion__term"><?= $suggestion->term() ?></span>
+                    <span class="search__suggestion__count"><?= $suggestion->numResults() ?></span>
+                </a>
+            </li>
+        <?php }; ?>
+    </ul>
+</div>

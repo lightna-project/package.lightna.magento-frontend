@@ -1,0 +1,189 @@
+entry:
+  common:
+    content:
+      magento-common-template: lightna/magento-frontend/template/*.phtml
+      magento-cms-template: lightna/magento-frontend/template/cms/**/*.phtml
+      magento-component-template: lightna/magento-frontend/template/component/**/*.phtml
+      magento-page-template: lightna/magento-frontend/template/page/**/*.phtml
+      magento-common-layout: lightna/magento-frontend/layout/**/*.yaml
+      magento-cms-layout: lightna/magento-frontend/layout/**/*.yaml
+      magento-common-js: lightna/magento-frontend/js/common/*.js
+    import:
+      tailwind-base: tailwindcss/base
+      tailwind-components: tailwindcss/components
+      tailwind-utilities: tailwindcss/utilities
+      # Base
+      magento-base-animation: lightna/magento-frontend/base/animation.css
+      magento-base-buttons: lightna/magento-frontend/base/buttons.css
+      magento-base-forms: lightna/magento-frontend/base/forms.css
+      magento-base-icons: lightna/magento-frontend/base/icons.css
+      magento-base-price: lightna/magento-frontend/base/price.css
+      magento-base-typography: lightna/magento-frontend/base/typography.css
+      magento-base-utilities: lightna/magento-frontend/base/utilities.css
+      # Components
+      magento-component-collapsible: lightna/magento-frontend/component/collapsible.css
+      magento-component-dropdown: lightna/magento-frontend/component/dropdown.css
+      magento-component-messages: lightna/magento-frontend/component/messages.css
+      magento-component-minicart: lightna/magento-frontend/component/minicart.css
+      magento-component-mobile-overlay: lightna/magento-frontend/component/mobile-overlay.css
+      magento-component-overlay: lightna/magento-frontend/component/overlay.css
+      magento-component-tabs: lightna/magento-frontend/component/tabs.css
+      magento-component-toggle-link: lightna/magento-frontend/component/toggle-link.css
+      ## Layout
+      magento-component-layout-footer: lightna/magento-frontend/component/layout/footer.css
+      magento-component-layout-grid: lightna/magento-frontend/component/layout/grid.css
+      magento-component-layout-header: lightna/magento-frontend/component/layout/header.css
+      magento-component-layout-nav: lightna/magento-frontend/component/layout/main-navigation.css
+      magento-component-layout-toolbar: lightna/magento-frontend/component/layout/toolbar.css
+      magento-component-layout-usp: lightna/magento-frontend/component/layout/usp.css
+      ## Product
+      magento-component-product-grid: lightna/magento-frontend/component/product/grid.css
+      magento-component-product-list: lightna/magento-frontend/component/product/list.css
+      magento-component-product-sku: lightna/magento-frontend/component/product/sku.css
+      magento-component-product-stock: lightna/magento-frontend/component/product/stock.css
+      magento-component-product-tile: lightna/magento-frontend/component/product/tile.css
+      ## Search
+      magento-component-search-form: lightna/magento-frontend/component/search/form.css
+      magento-component-search-suggestions: lightna/magento-frontend/component/search/suggestions.css
+  product:
+    content:
+      magento-product-template: lightna/magento-frontend/template/product/**/*.phtml
+      magento-product-layout: lightna/magento-frontend/layout/product.yaml
+      magento-product-js: lightna/magento-frontend/js/product/**/*.js
+    import:
+      tailwind-components: tailwindcss/components
+      tailwind-utilities: tailwindcss/utilities
+      # Base
+      magento-base-buttons: lightna/magento-frontend/base/buttons.css
+      magento-base-icons: lightna/magento-frontend/base/icons.css
+      magento-base-utilities: lightna/magento-frontend/base/utilities.css
+      ## Layout
+      magento-component-layout-grid: lightna/magento-frontend/component/layout/grid.css
+      # Components
+      magento-component-tabs: lightna/magento-frontend/component/tabs.css
+      ## Product
+      magento-component-product-attributes-list: lightna/magento-frontend/component/product/attributes-list.css
+      magento-component-product-gallery: lightna/magento-frontend/component/product/gallery.css
+      magento-component-product-options: lightna/magento-frontend/component/product/options.css
+      magento-component-product-sku: lightna/magento-frontend/component/product/sku.css
+      magento-component-product-stock: lightna/magento-frontend/component/product/stock.css
+      magento-component-product-usp: lightna/magento-frontend/component/product/usp.css
+  listing:
+    content:
+      magento-product-template: lightna/magento-frontend/template/category/**/*.phtml
+      magento-product-layout: lightna/magento-frontend/layout/category.yaml
+      magento-product-js: lightna/magento-frontend/js/listing/**/*.js
+    import:
+      tailwind-components: tailwindcss/components
+      tailwind-utilities: tailwindcss/utilities
+      # Base
+      magento-base-icons: lightna/magento-frontend/base/icons.css
+      # Components
+      magento-component-collapsible: lightna/magento-frontend/component/collapsible.css
+      magento-component-toggle-link: lightna/magento-frontend/component/toggle-link.css
+      ## Layout
+      magento-component-layout-toolbar: lightna/magento-frontend/component/layout/toolbar.css
+      ## Product
+      magento-component-product-grid: lightna/magento-frontend/component/product/grid.css
+      ## Listing
+      magento-component-listing-facets: lightna/magento-frontend/component/listing/facets.css
+      # Page
+      magento-page-category: lightna/magento-frontend/page/category.css
+tailwind:
+  theme:
+    borderRadius:
+      none: 0
+      sm: 2px
+      default: 4px
+      md: 6px
+      lg: 8px
+      xl: 12px
+      2xl: 16px
+      3xl: 20px
+      full: 9999px
+    fontFamily:
+      sans: [ Assistant, sans-serif ]
+    fontSize:
+      xs: [ 12px, 16px ]
+      sm: [ 14px,  20px ]
+      base: [ 16px, 24px ]
+      lg: [ 18px,  28px ]
+      xl: [ 20px, 28px ]
+      2xl: [ 24px, 32px ]
+      3xl: [ 30px,  36px ]
+      4xl: [ 36px, 40px ]
+      5xl: [ 48px, "1" ]
+      6xl: [ 60px, "1" ]
+      7xl: [ 72px, "1" ]
+      8xl: [ 96px, "1" ]
+      9xl: [ 128px, "1" ]
+    spacing:
+      px: 1px
+      0: 0
+      "0.5": 2px
+      1: 4px
+      "1.5": 6px
+      2: 8px
+      "2.5": 10px
+      3: 12px
+      "3.5": 14px
+      4: 16px
+      5: 20px
+      6: 24px
+      7: 28px
+      8: 32px
+      9: 36px
+      10: 40px
+      11: 44px
+      12: 48px
+      14: 56px
+      16: 64
+      20: 80px
+      24: 96px
+      28: 112px
+      32: 128px
+      36: 144px
+      40: 160px
+    extend:
+      lineHeight:
+        3: 12px
+        4: 16px
+        5: 20px
+        6: 24px
+        7: 28px
+        8: 32px
+        9: 36px
+        10: 40px
+      maxWidth:
+        xs: 320px
+        sm: 384px
+        md: 448px
+        lg: 512px
+        xl: 576px
+        2xl: 672px
+        3xl: 768px
+        4xl: 896px
+        5xl: 1024px
+        6xl: 1152px
+        7xl: 1280px
+      colors:
+        primary:
+          main: '#222222'
+          alt: '#997E49'
+          text: '#272525'
+          bg: '#FAF8F8'
+        hover:
+          main: '#3B3B3B'
+        message:
+          error:
+            text: '#C02D33'
+            bg: '#F9D6D7'
+          success:
+            text: '#339F3F'
+            bg: '#DFF0D8'
+          warning:
+            text: '#FDB91A'
+            bg: '#FFF3D9'
+          notice:
+            text: '#5375AA'
+            bg: '#D6E2FF'

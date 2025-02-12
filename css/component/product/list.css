@@ -1,0 +1,41 @@
+@layer components {
+    .product-list {
+        @apply flex flex-col gap-6;
+    }
+
+    .product-list__item {
+        @apply flex items-start gap-2;
+    }
+
+    .product-list__item__image {
+        @apply mt-[5px] h-16 w-16 shrink-0 rounded-sm bg-primary-main/10;
+    }
+
+    .product-list__item__info {
+        @apply flex w-full flex-col;
+    }
+
+    .product-list__item__name {
+        @apply mb-1 font-normal;
+    }
+
+    .product-list__item__name a {
+        @apply hover:no-underline;
+    }
+
+    .product-list__item__details {
+        @apply text-xs;
+    }
+
+    .product-list__item__details span {
+        @apply text-slate-500;
+    }
+
+    .product-list__item__price {
+        @apply price mt-2 text-sm;
+    }
+
+    .product-list__item__remove {
+        @apply icon icon-close icon-close-xs shrink-0 cursor-pointer;
+    }
+}

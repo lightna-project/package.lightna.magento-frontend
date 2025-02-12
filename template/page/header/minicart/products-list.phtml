@@ -1,0 +1,14 @@
+<?php
+/**
+ * Import:
+ * @var Lightna\Magento\Data\Session $session
+ * @var Lightna\Magento\Data\Currency $currency
+ */
+
+$cart = $session->cart;
+?>
+<ul class="product-list minicart__product-list">
+    <?php foreach ($cart->items as $id => $item): ?>
+        <?= block('item', compact('id', 'item')) ?>
+    <?php endforeach; ?>
+</ul>

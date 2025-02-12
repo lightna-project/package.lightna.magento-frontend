@@ -1,0 +1,11 @@
+<?php
+/**
+ * Import:
+ * @var Lightna\Magento\Data\Content\Product $productContent
+ */
+?>
+<?php if ($uspHtml = $productContent->uspHtml) : ?>
+    <div class="product-usp">
+        <?= $uspHtml ?>
+    </div>
+<?php endif; ?>

@@ -1,0 +1,14 @@
+<?php
+/**
+ * Import:
+ * @var Lightna\Magento\Data\Content\Page $page
+ */
+?>
+<nav class="main-navigation mobile-overlay no-js" data-overlay="menu">
+    <div class="mobile-overlay__title__container">
+        <span class="mobile-overlay__title"><?= phrase('Menu') ?></span>
+        <!-- Close mobile menu -->
+        <div class="icon" data-action="toggle-overlay" data-overlay-id="menu"></div>
+    </div>
+    <?= block('item', ['item' => $page->menu]) ?>
+</nav>

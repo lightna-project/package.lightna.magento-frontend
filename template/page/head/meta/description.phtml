@@ -1,0 +1,11 @@
+<?php
+/**
+ * Import:
+ * @var Lightna\Engine\Data\EntityData $entity
+ */
+
+if (!$entity->metaDescription) {
+    return;
+}
+?>
+<meta name="description" content="<?= $entity->metaDescription()  ?>">

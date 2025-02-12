@@ -1,0 +1,20 @@
+<?php
+/**
+ * Import:
+ * @var Lightna\Magento\Data\Product\Search $search
+ */
+?>
+<div>
+    <?php if (!count($search->result)) { ?>
+        <div class="no-results"><?= phrase('We can\'t find products matching the selection.') ?></div>
+    <?php } else { ?>
+        <ul class="products-grid">
+            <?php foreach ($search->result as $index => $product) { ?>
+                <?= block('item', compact('index', 'product')) ?>
+            <?php } ?>
+        </ul>
+        <div class="toolbar">
+            Total - <?= $search->total() ?>, Page size - <?= $search->pageSize() ?><br>
+        </div>
+    <?php } ?>
+</div>

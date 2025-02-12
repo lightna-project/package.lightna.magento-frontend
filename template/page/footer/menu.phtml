@@ -1,0 +1,11 @@
+<?php
+/**
+ * Import:
+ * @var Lightna\Magento\Data\Content\Page $page
+ */
+?>
+<?php if ($footerLinksHtml = $page->footerLinksHtml) : ?>
+    <div class="footer-columns">
+        <?= $footerLinksHtml ?>
+    </div>
+<?php endif; ?>

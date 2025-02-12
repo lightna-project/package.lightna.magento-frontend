@@ -1,0 +1,18 @@
+<?php
+/**
+ * Import:
+ * @var Lightna\Magento\Data\Session $session
+ */
+$isLoggedIn = $session->customer->groupId !== 0;
+$iconClass = $isLoggedIn ? 'icon-user__filled' : 'icon-user__outline';
+?>
+<div class="icon-dropdown dropdown">
+    <div class="header__icon header__icon--hover">
+        <a href="/customer/account" class="icon <?= $iconClass ?>" title="<?= phrase('My Account') ?>"></a>
+    </div>
+    <?php if ($isLoggedIn): ?>
+        <?= block('customer') ?>
+    <?php else: ?>
+        <?= block('guest') ?>
+    <?php endif; ?>
+</div>
