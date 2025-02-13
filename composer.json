@@ -3,12 +3,12 @@
     "description": "Lightna Magento Frontend module",
     "type": "library",
     "license": "MIT",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "require": {
-        "lightna/lightna.magento-backend": "^1.0.4",
-        "lightna/lightna.session": "^1.0.4",
-        "lightna/lightna.tailwind": "^1.0.4",
-        "lightna/lightna.webpack": "^1.0.4",
-        "lightna/lightna.elasticsearch": "^1.0.4"
+        "lightna/lightna.magento-backend": "^1.0.5",
+        "lightna/lightna.session": "^1.0.5",
+        "lightna/lightna.tailwind": "^1.0.5",
+        "lightna/lightna.webpack": "^1.0.5",
+        "lightna/lightna.elasticsearch": "^1.0.5"
     }
 }
