@@ -2,6 +2,7 @@ import { Request } from 'lightna/lightna-engine/lib/Request';
 import { $ } from 'lightna/lightna-engine/lib/utils/dom';
 import { Blocks } from 'lightna/lightna-engine/lib/Blocks';
 import { PageMessage } from 'lightna/magento-frontend/common/PageMessage';
+import { ClickEventDelegator} from 'lightna/magento-frontend/common/ClickEventDelegator';
 
 export class MiniCart {
     blockId = 'minicart';
@@ -12,35 +13,26 @@ export class MiniCart {
         fade: 'fade-out',
     };
     actions = {
-        'open-minicart': () => this.open(),
-        'close-minicart': () => this.close(),
-        'remove-product': (trigger) => this.removeProduct(trigger),
+        click: {
+            'open-minicart': [() => this.open()],
+            'close-minicart': [() => this.close()],
+            'remove-product': [(event, trigger) => this.removeProduct(trigger)],
+        }
     };
 
     constructor() {
-        this.miniCart = '.cjs-minicart';
+        this.component = '.cjs-minicart';
         this.initializeEventListeners();
+        this.initializeActions();
     }
 
     initializeEventListeners() {
         document.addEventListener('add-to-cart', (event) => this.handleAddToCart(event));
         document.addEventListener('keydown', (event) => this.handleKeydown(event));
-        $('body').addEventListener('click', (event) => this.handleCartActions(event));
     }
 
-    handleCartActions(event) {
-        const trigger = event.target.closest(`[data-action]`);
-        if (!trigger) return;
-
-        const action = trigger.getAttribute('data-action');
-        const handler = this.actions[action];
-        if (handler) {
-            try {
-                handler(trigger);
-            } catch (error) {
-                console.error(`Error handling minicart action: ${action}`, error);
-            }
-        }
+    initializeActions() {
+        ClickEventDelegator.add(this.actions.click);
     }
 
     handleKeydown(event) {
@@ -63,7 +55,7 @@ export class MiniCart {
 
     async handleAddToCart(event) {
         await this.refresh();
-        if (!event.detail.withMessages) {
+        if (!event.detail.response.messagesHtml) {
             await this.open();
         }
     }
@@ -104,7 +96,7 @@ export class MiniCart {
     }
 
     fadeOutItem(itemId) {
-        const removedItem = $(`[data-item-id="${itemId}"]`, $(this.miniCart))?.closest('li');
+        const removedItem = $(`[data-item-id="${itemId}"]`, $(this.component))?.closest('li');
         if (removedItem) {
             removedItem.classList.add(this.classes.fade);
         }
