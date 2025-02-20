@@ -3,11 +3,11 @@
     "description": "Lightna Magento Frontend module",
     "type": "library",
     "license": "MIT",
-    "version": "1.0.30",
+    "version": "1.0.31",
     "require": {
-        "lightna/magento-backend": "^1.0.30",
-        "lightna/session": "^1.0.30",
-        "lightna/tailwind": "^1.0.30",
-        "lightna/webpack": "^1.0.30"
+        "lightna/magento-backend": "^1.0.31",
+        "lightna/session": "^1.0.31",
+        "lightna/tailwind": "^1.0.31",
+        "lightna/webpack": "^1.0.31"
     }
 }
