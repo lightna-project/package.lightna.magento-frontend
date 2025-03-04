@@ -1,30 +1,34 @@
 import { Request } from 'lightna/engine/lib/Request';
 import { $ } from 'lightna/engine/lib/utils/dom';
+import { resolveAnimationEnd } from 'lightna/engine/lib/utils/resolveAnimationEnd';
 import { Blocks } from 'lightna/engine/lib/Blocks';
 import { PageMessage } from 'lightna/magento-frontend/common/PageMessage';
 import { ClickEventDelegator} from 'lightna/magento-frontend/common/ClickEventDelegator';
 
 export class MiniCart {
-    blockId = 'minicart';
-    removeFromCartUrl = '/checkout/sidebar/removeItem';
-    minActionDuration = 200;
+    static MINICART_BLOCK_ID = 'minicart';
+    static CART_REMOVE_URL = '/checkout/sidebar/removeItem';
     classes = {
         cartOpen: 'minicart-open',
         fade: 'fade-out',
+        disableClick: 'pointer-events-none',
     };
     actions = {
         click: {
             'open-minicart': [() => this.open()],
             'close-minicart': [() => this.close()],
-            'remove-product': [(event, trigger) => this.removeProduct(trigger)],
+            'remove-product': [(event, target) => this.onRemoveProduct(target)],
         }
     };
+    component = '.cjs-minicart';
 
     constructor() {
-        this.component = '.cjs-minicart';
+        this.extendProperties();
         this.initializeEventListeners();
         this.initializeActions();
     }
+
+    extendProperties() {}
 
     initializeEventListeners() {
         document.addEventListener('add-to-cart', (event) => this.handleAddToCart(event));
@@ -47,7 +51,7 @@ export class MiniCart {
 
     async refresh() {
         try {
-            await Blocks.updateHtml([this.blockId]);
+            await Blocks.updateHtml([MiniCart.MINICART_BLOCK_ID]);
         } catch (error) {
             console.error('Error refreshing the minicart:', error);
         }
@@ -65,40 +69,43 @@ export class MiniCart {
             await this.refresh();
         }
 
-        setTimeout(() => {
-            PageMessage.clearAll();
+        PageMessage.clearAll();
+        requestAnimationFrame(() => {
             document.body.classList.add(this.classes.cartOpen);
-        }, this.minActionDuration);
+        });
     }
 
     close() {
         document.body.classList.remove(this.classes.cartOpen);
     }
 
-    async removeProduct(trigger) {
-        const itemId = trigger.getAttribute('data-item-id');
-        if (!itemId) return;
+    async onRemoveProduct(element) {
+        await this.removeProduct(element.dataset.itemId);
+        await this.animateRemoval(element);
+        await this.refresh();
+    }
 
-        try {
-            await Request.post(this.removeFromCartUrl, { item_id: itemId });
-            this.afterRemoveProduct(itemId);
-        } catch (error) {
-            console.error(`Error removing product (ID: ${itemId}) from minicart:`, error);
+    async removeProduct(itemId) {
+        const response = await Request.post(MiniCart.CART_REMOVE_URL, {
+            item_id: itemId,
+        });
+        if (!response.success) {
+            throw new Error(
+                `Error removing product (ID: ${itemId}) from minicart: ${response.error_message}`,
+            );
         }
     }
 
-    afterRemoveProduct(itemId) {
-        this.fadeOutItem(itemId);
+    async animateRemoval(element) {
+        const item = this.getItemElement(element);
+        if (!item) return;
 
-        setTimeout(() => {
-            this.refresh();
-        }, this.minActionDuration);
+        item.classList.add(this.classes.disableClick);
+        item.classList.add(this.classes.fade);
+        await resolveAnimationEnd(item);
     }
 
-    fadeOutItem(itemId) {
-        const removedItem = $(`[data-item-id="${itemId}"]`, $(this.component))?.closest('li');
-        if (removedItem) {
-            removedItem.classList.add(this.classes.fade);
-        }
+    getItemElement(element) {
+        return element.closest('li');
     }
 }
