@@ -30,7 +30,15 @@ extends:
           class:
             - relative
         .gallery:
+          id: image-gallery
           template: lightna/magento-frontend/product/gallery.phtml
+          image:
+            preview:
+              width: 535
+              height: 664
+            thumbnail:
+              width: 100
+              height: 124
       .right-container:
         container: div
         attributes:
@@ -38,8 +46,10 @@ extends:
             - md:sticky
             - top-[88px]
         .sku:
+          id: product-sku
           template: lightna/magento-frontend/product/attributes/sku.phtml
         .name:
+          id: product-name
           template: lightna/magento-frontend/product/attributes/name.phtml
         .price-and-discount:
           container: div
@@ -54,6 +64,7 @@ extends:
               - mb-4
               - price-lg
           .price:
+            id: product-price
             template: lightna/magento-frontend/component/product/price.phtml
             attributes:
               class:
@@ -63,9 +74,11 @@ extends:
                 - gap-x-3
                 - gap-y-1
           .discount:
+            id: product-discount
             template: lightna/magento-frontend/component/product/discount.phtml
         .cta:
           .add-to-cart:
+            id: product-add-to-cart
             template: lightna/magento-frontend/product/cta/add-to-cart.phtml
             attributes:
               class:
@@ -84,16 +97,29 @@ extends:
                   - flex
                   - flex-col
                   - gap-2
+            .wishlist:
+              id: wishlist-button
+              private: true
+              template: lightna/magento-frontend/product/wishlist.phtml
         .stock:
+          id: product-stock
           template: lightna/magento-frontend/product/stock.phtml
         .usp:
+          id: product-usp
           template: lightna/magento-frontend/product/usp.phtml
       .details:
+        id: product-details
         template: lightna/magento-frontend/product/tabs.phtml
         .description:
+          id: product-description
           title: "Description"
           active: true
           template: lightna/magento-frontend/product/description.phtml
         .specifications:
+          id: product-specifications
           title: "Specifications"
           template: lightna/magento-frontend/product/attributes/all-visible.phtml
+    .related-products:
+      id: related-products
+      template: lightna/magento-frontend/product/related.phtml
+      .item: component/product/tile.yaml

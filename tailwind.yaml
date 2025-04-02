@@ -54,20 +54,27 @@ entry:
       tailwind-components: tailwindcss/components
       tailwind-utilities: tailwindcss/utilities
       # Base
+      magento-base-animation: lightna/magento-frontend/base/animation.css
       magento-base-buttons: lightna/magento-frontend/base/buttons.css
       magento-base-icons: lightna/magento-frontend/base/icons.css
       magento-base-utilities: lightna/magento-frontend/base/utilities.css
       ## Layout
+      magento-component-layout-breadcrumbs: lightna/magento-frontend/component/layout/breadcrumbs.css
       magento-component-layout-grid: lightna/magento-frontend/component/layout/grid.css
       # Components
       magento-component-tabs: lightna/magento-frontend/component/tabs.css
       ## Product
       magento-component-product-attributes-list: lightna/magento-frontend/component/product/attributes-list.css
       magento-component-product-gallery: lightna/magento-frontend/component/product/gallery.css
+      magento-component-product-grid: lightna/magento-frontend/component/product/grid.css
       magento-component-product-options: lightna/magento-frontend/component/product/options.css
+      magento-component-product-related: lightna/magento-frontend/component/product/related.css
       magento-component-product-sku: lightna/magento-frontend/component/product/sku.css
       magento-component-product-stock: lightna/magento-frontend/component/product/stock.css
       magento-component-product-usp: lightna/magento-frontend/component/product/usp.css
+      magento-component-product-wishlist: lightna/magento-frontend/component/product/wishlist.css
+      # Page
+      magento-page-product: lightna/magento-frontend/page/product.css
   listing:
     content:
       magento-product-template: lightna/magento-frontend/template/category/**/*.phtml
