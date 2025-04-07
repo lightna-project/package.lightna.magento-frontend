@@ -5,8 +5,9 @@ entry:
       magento-cms-template: lightna/magento-frontend/template/cms/**/*.phtml
       magento-component-template: lightna/magento-frontend/template/component/**/*.phtml
       magento-page-template: lightna/magento-frontend/template/page/**/*.phtml
-      magento-common-layout: lightna/magento-frontend/layout/**/*.yaml
-      magento-cms-layout: lightna/magento-frontend/layout/**/*.yaml
+      magento-common-layout: lightna/magento-frontend/layout/page.yaml
+      magento-cms-layout: lightna/magento-frontend/layout/cms.yaml
+      magento-component-layout: lightna/magento-frontend/layout/component/**/*.yaml
       magento-common-js: lightna/magento-frontend/js/common/*.js
     import:
       tailwind-base: tailwindcss/base
@@ -21,6 +22,7 @@ entry:
       magento-base-typography: lightna/magento-frontend/base/typography.css
       magento-base-utilities: lightna/magento-frontend/base/utilities.css
       # Components
+      magento-component-carousel: lightna/magento-frontend/component/carousel.css
       magento-component-collapsible: lightna/magento-frontend/component/collapsible.css
       magento-component-dropdown: lightna/magento-frontend/component/dropdown.css
       magento-component-messages: lightna/magento-frontend/component/messages.css
@@ -62,6 +64,7 @@ entry:
       magento-component-layout-breadcrumbs: lightna/magento-frontend/component/layout/breadcrumbs.css
       magento-component-layout-grid: lightna/magento-frontend/component/layout/grid.css
       # Components
+      magento-component-carousel: lightna/magento-frontend/component/carousel.css
       magento-component-tabs: lightna/magento-frontend/component/tabs.css
       ## Product
       magento-component-product-attributes-list: lightna/magento-frontend/component/product/attributes-list.css
@@ -73,6 +76,7 @@ entry:
       magento-component-product-stock: lightna/magento-frontend/component/product/stock.css
       magento-component-product-usp: lightna/magento-frontend/component/product/usp.css
       magento-component-product-wishlist: lightna/magento-frontend/component/product/wishlist.css
+      magento-component-product-tile: lightna/magento-frontend/component/product/tile.css
       # Page
       magento-page-product: lightna/magento-frontend/page/product.css
   listing:
